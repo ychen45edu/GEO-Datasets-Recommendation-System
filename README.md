@@ -1,2 +1,2 @@
 # GEO-Datasets-Recommendation-System
-we developed a comprehensive framework for dataset recommen- dation, demonstrated using the Gene Expression Omnibus (GEO) repository.The framework is generalizable and can be extended to support the recommendation of other types of datasets, to enhance their visibility and reusability.
+This repository contains an open, extensible framework for automated dataset recommendation. While benchmarked and demonstrated using the Gene Expression Omnibus (GEO) repository, the underlying model architecture is designed to enhance the visibility, findability, and secondary reuse of diverse open-science datasets.
