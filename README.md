@@ -8,11 +8,6 @@
 
 ## Table of Contents
 - [Overview](#overview)
-- [Repository Structure](#repository-structure)
-- [Prerequisites & Installation](#prerequisites--installation)
-- [Database Setup](#database-setup)
-- [Pipeline Architecture & Workflow](#pipeline-architecture--workflow)
-- [Running the Evaluation Pipeline](#running-the-evaluation-pipeline)
 - [Authors & Contact](#authors--contact)
 - [Citation](#citation)
 
