@@ -9,7 +9,6 @@
 ## Table of Contents
 - [Overview](#overview)
 - [Authors & Contact](#authors--contact)
-- [Citation](#citation)
 
 ---
 
