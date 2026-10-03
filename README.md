@@ -29,7 +29,7 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
   - Email: [yu.bin.chen@uth.tmc.edu](mailto:yu.bin.chen@uth.tmc.edu)  
   - GitHub: [@ychen45edu](https://github.com/your-username)
 
-- **Dr. Tru Cao**  
+- **Tru Cao**  
   - The University of Texas Health Science Center at Houston (UTHealth)  
   - Email: [tru.cao@uth.tmc.edu](mailto:tru.cao@uth.tmc.edu)  
 
