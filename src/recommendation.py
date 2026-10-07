@@ -29,8 +29,8 @@ def contact_email(soup):
 
 def load_soups(item, pmid):
     """Load and parse HTML soup objects for a GSE item and a PubMed ID."""
-    gse_path = "./github/data/raw/gse/"
-    pm_path = "./github/data/raw/pubmed/"
+    gse_path = "../data/raw/gse/"
+    pm_path = "../data/raw/pubmed/"
 
     with open(f"{gse_path}{item}.txt", encoding="utf-8") as fp:
         soup_gse = BeautifulSoup(fp, "html.parser")
@@ -341,9 +341,8 @@ def generate_recommendation_csv(author_id, output_dir):
 
 
 if __name__ == "__main__":
-    # Prompt interactively for exactly one author_id
     target_author_id =38410
-    output_dir = "./test_run"
+    output_dir = "../test_run"
     if target_author_id:
         generate_recommendation_csv(target_author_id,output_dir)
     else:
