@@ -9,7 +9,7 @@
 ## Table of Contents
 - [Overview](#overview)
 - [Authors & Contact](#authors--contact)
-- [Workflow & Execution] (#Workflow & Execution)
+- [Workflow & Execution](#Workflow--&--Execution)
 
 ---
 
