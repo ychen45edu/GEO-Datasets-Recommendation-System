@@ -183,7 +183,7 @@ class email_ground_true_class_for_add_tf_to_csv:
     def __init__(self, gse, author_id):
         self.gse = gse
         self.author_id = author_id
-        self.gse_pmid_dic = ecp.series_ls_w_contact("./github/data/raw/series_info.csv", 0)
+        self.gse_pmid_dic = ecp.series_ls_w_contact("../data/raw/series_info.csv", 0)
         self.g_c_dic = ecp.g_c_dic("./github/data/raw/series_info.csv")
         self.pmid = self.gse_pmid_dic.get(gse)
         self.email = ""
