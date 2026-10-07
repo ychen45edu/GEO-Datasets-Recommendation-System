@@ -8,8 +8,8 @@
 
 ## Table of Contents
 - [Overview](#overview)
-- [Workflow & Execution](#Workflow--&--Execution)
-- [Authors & Contact](#authors--contact)
+- [Workflow & Execution](#workflow--execution)
+- [Author & Contact](#author--contact)
 
 ---
 
