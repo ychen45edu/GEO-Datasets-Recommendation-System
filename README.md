@@ -23,6 +23,20 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 ---
 
 
+## Workflow & Execution
+
+Follow these three sequential steps to build the database, populate all tables, and generate author recommendations.
+
+### Step 1: Initialize the Empty Database
+Run `database_construction.py` to create `sample.db` and initialize the relational schema (`author`, `series`, `author_series`, etc.):
+
+### Step 2: Import Data Tables
+Import all processed table files from the `data/` directory into the initialized SQLite database:
+
+### Step 3: Run the Recommendation Pipeline
+Execute `recommendation.py` to compute multi-feature similarities and export the candidate recommendation results:
+
+
 ## Author & Contact
 - **Yu Bin (Gary) Chen**  
   - The University of Texas Health Science Center at Houston (UTHealth)  
