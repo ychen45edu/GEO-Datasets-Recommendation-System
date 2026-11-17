@@ -26,16 +26,40 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 
 ## Workflow & Execution
 
-Follow these three sequential steps to build the database, populate all tables, and generate author recommendations.
+Follow these four sequential steps to build the database, populate all tables, generate author recommendations, and export the evaluation figures.
 
 ### Step 1: Initialize the Empty Database
 Run `database_construction.py` to create `sample.db` and initialize the relational schema (`author`, `series`, `author_series`, etc.):
 
+```bash
+python database_construction.py
+```
+
 ### Step 2: Import Data Tables
-Import all processed table files from the `data/` directory into the initialized SQLite database:
+Run `import_table.py` to import all processed table files from the `data/` directory into the initialized SQLite database:
+
+```bash
+python import_table.py
+```
 
 ### Step 3: Run the Recommendation Pipeline
 Execute `recommendation.py` to compute multi-feature similarities and export the candidate recommendation results:
+
+```bash
+python recommendation.py
+```
+
+### Step 4: Evaluate Results & Export Figures
+Run `evaluation.R` to evaluate model performance and export the publication figures:
+
+```bash
+Rscript evaluation.R
+```
+
+This script exports the following figures:
+- **Figure 8:** A histogram of the number of GEO datasets used by an author.
+- **Figure 9:** Performance diagrams using five data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
+- **Figure 10:** Performance diagrams using three data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
 
 
 ## Author & Contact
