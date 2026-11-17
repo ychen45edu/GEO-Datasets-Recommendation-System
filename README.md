@@ -57,9 +57,9 @@ Rscript evaluation.R
 ```
 
 This script exports the following figures:
-- **Figure 8:** A histogram of the number of GEO datasets used by an author.
-- **Figure 9:** Performance diagrams using five data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
-- **Figure 10:** Performance diagrams using three data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
+- **Figure 1:** A histogram of the number of GEO datasets used by an author.
+- **Figure 2:** Performance diagrams using five data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
+- **Figure 3:** Performance diagrams using three data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
 
 
 ## Author & Contact
