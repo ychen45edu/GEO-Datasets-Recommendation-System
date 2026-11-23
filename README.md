@@ -28,28 +28,44 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 
 Follow these four sequential steps to build the database, populate all tables, generate author recommendations, and export the evaluation figures.
 
-### Step 1: Initialize the Empty Database
+### Step 1: Data Download & Preparation
+Because the raw NCBI GEO (`gse_html/`) and PubMed (`pub_html/`) HTML datasets exceed GitHub's single-file size limits, they are hosted as split `tar.gz` archives under the [**`v1.0-data` Release**](https://github.com/ychen45edu/GEO-Datasets-Recommendation-System/releases/tag/v1.0-data).
+
+1. **Download all archive assets** (`gse_html.tar.gz.part_aa`, `pub_html.tar.gz.part_aa`, and `pub_html.tar.gz.part_ab`) from the [`v1.0-data` Release page](https://github.com/ychen45edu/GEO-Datasets-Recommendation-System/releases/tag/v1.0-data).
+
+3. **Reassemble and extract** both archives directly into the repository's `data/` directory:
+
+```bash
+# Extract into ./GEO-Datasets-Recommendation-System/data/gse_html/
+cat gse_html.tar.gz.part_* | tar -xzvf - -C ./GEO-Datasets-Recommendation-System/data/gse_html
+
+# Extract into ./GEO-Datasets-Recommendation-System/data/pub_html/
+cat pub_html.tar.gz.part_* | tar -xzvf - -C ./GEO-Datasets-Recommendation-System/data/pub_html
+```
+
+
+### Step 2: Initialize the Empty Database
 Run `database_construction.py` to create `sample.db` and initialize the relational schema (`author`, `series`, `author_series`, etc.):
 
 ```bash
 python database_construction.py
 ```
 
-### Step 2: Import Data Tables
+### Step 3: Import Data Tables
 Run `import_table.py` to import all processed table files from the `data/` directory into the initialized SQLite database:
 
 ```bash
 python import_table.py
 ```
 
-### Step 3: Run the Recommendation Pipeline
+### Step 4: Run the Recommendation Pipeline
 Execute `recommendation.py` to compute multi-feature similarities and export the candidate recommendation results:
 
 ```bash
 python recommendation.py
 ```
 
-### Step 4: Evaluate Results & Export Figures
+### Step 5: Evaluate Results & Export Figures
 Run `evaluation.R` to evaluate model performance and export the publication figures:
 
 ```bash
