@@ -1,7 +1,10 @@
 import sqlite3
+from pathlib import Path
 
-def construct_db(name):
-    conn=sqlite3.connect(name)
+def construct_db(path="../test/sample.db"):
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+
+    conn=sqlite3.connect(path)
     cur=conn.cursor()
 
     # Create Series data table
