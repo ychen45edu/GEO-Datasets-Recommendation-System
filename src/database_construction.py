@@ -1,5 +1,4 @@
 import sqlite3
-import pandas as pd
 
 def construct_db(name):
     conn=sqlite3.connect(name)
@@ -110,4 +109,3 @@ def construct_db(name):
     conn.close()
 
 
-construct_db("../test/sample.db")

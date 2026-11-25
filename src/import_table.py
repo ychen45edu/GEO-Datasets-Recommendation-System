@@ -29,10 +29,7 @@ def import_csvs_to_sqlite(csv_dir: str, db_path: str, tables: list[str], if_exis
         conn.close()
 
 
-if __name__ == "__main__":
-    CSV_FOLDER = "../data"
-    TARGET_DB = "../test/sample.db"
-
+def import_csv_to_db(CSV_FOLDER, TARGET_DB):
     TABLES = [
         "affiliation",
         "author",
@@ -44,4 +41,8 @@ if __name__ == "__main__":
         "publication_series",
     ]
 
-    import_csvs_to_sqlite(CSV_FOLDER, TARGET_DB, TABLES,if_exists="replace")
+    import_csvs_to_sqlite(CSV_FOLDER, TARGET_DB, TABLES, if_exists="replace")
+
+
+
+
