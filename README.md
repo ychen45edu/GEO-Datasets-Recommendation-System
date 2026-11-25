@@ -28,20 +28,7 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 
 Follow these four sequential steps to build the database, populate all tables, generate author recommendations, and export the evaluation figures.
 
-### Step 1: Data Download & Preparation
-Because the raw NCBI GEO (`gse_html/`) and PubMed (`pub_html/`) HTML datasets exceed GitHub's single-file size limits, they are hosted as split `tar.gz` archives under the [**`v1.0-data` Release**](https://github.com/ychen45edu/GEO-Datasets-Recommendation-System/releases/tag/v1.0-data).
 
-1. **Download all archive assets** (`gse_html.tar.gz.part_aa`, `pub_html.tar.gz.part_aa`, and `pub_html.tar.gz.part_ab`) from the [`v1.0-data` Release page](https://github.com/ychen45edu/GEO-Datasets-Recommendation-System/releases/tag/v1.0-data).
-
-3. **Reassemble and extract** both archives directly into the repository's `data/` directory:
-
-```bash
-# Extract into ./GEO-Datasets-Recommendation-System/data/gse_html/
-cat gse_html.tar.gz.part_* | tar -xzvf - -C ./GEO-Datasets-Recommendation-System/data/gse_html
-
-# Extract into ./GEO-Datasets-Recommendation-System/data/pub_html/
-cat pub_html.tar.gz.part_* | tar -xzvf - -C ./GEO-Datasets-Recommendation-System/data/pub_html
-```
 
 
 ### Step 2: Initialize the Empty Database
