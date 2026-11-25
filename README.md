@@ -28,28 +28,31 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 
 Follow these four sequential steps to build the database, populate all tables, generate author recommendations, and export the evaluation figures.
 
-### Step 1: Initialize the Empty Database
+
+
+
+### Step 2: Initialize the Empty Database
 Run `database_construction.py` to create `sample.db` and initialize the relational schema (`author`, `series`, `author_series`, etc.):
 
 ```bash
 python database_construction.py
 ```
 
-### Step 2: Import Data Tables
+### Step 3: Import Data Tables
 Run `import_table.py` to import all processed table files from the `data/` directory into the initialized SQLite database:
 
 ```bash
 python import_table.py
 ```
 
-### Step 3: Run the Recommendation Pipeline
+### Step 4: Run the Recommendation Pipeline
 Execute `recommendation.py` to compute multi-feature similarities and export the candidate recommendation results:
 
 ```bash
 python recommendation.py
 ```
 
-### Step 4: Evaluate Results & Export Figures
+### Step 5: Evaluate Results & Export Figures
 Run `evaluation.R` to evaluate model performance and export the publication figures:
 
 ```bash
