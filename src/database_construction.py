@@ -110,4 +110,4 @@ def construct_db(name):
     conn.close()
 
 
-construct_db("sample.db")
+construct_db("../test/sample.db")
