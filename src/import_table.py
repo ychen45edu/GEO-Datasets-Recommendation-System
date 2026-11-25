@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 
-def import_csvs_to_sqlite(csv_dir: str, db_path: str, tables: list[str]):
+def import_csvs_to_sqlite(csv_dir: str, db_path: str, tables: list[str], if_exists: str = "replace"):
     input_path = Path(csv_dir)
     conn = sqlite3.connect(db_path)
 
@@ -13,7 +13,13 @@ def import_csvs_to_sqlite(csv_dir: str, db_path: str, tables: list[str]):
             print(f"Importing {table}...")
 
             df = pd.read_csv(csv_file, encoding="utf-8")
-            df.to_sql(table, conn, index=False, chunksize=5000)
+            df.to_sql(
+                table,
+                conn,
+                if_exists=if_exists,  # 'replace' or 'append'
+                index=False,
+                chunksize=5000,
+            )
 
             print(f"Loaded {len(df)} rows into '{table}'.")
 
@@ -24,8 +30,8 @@ def import_csvs_to_sqlite(csv_dir: str, db_path: str, tables: list[str]):
 
 
 if __name__ == "__main__":
-    CSV_FOLDER = "github"
-    TARGET_DB = "recom_sys.db"
+    CSV_FOLDER = "../data"
+    TARGET_DB = "../test/sample.db"
 
     TABLES = [
         "affiliation",
@@ -38,4 +44,4 @@ if __name__ == "__main__":
         "publication_series",
     ]
 
-    import_csvs_to_sqlite(CSV_FOLDER, TARGET_DB, TABLES)
+    import_csvs_to_sqlite(CSV_FOLDER, TARGET_DB, TABLES,if_exists="replace")
