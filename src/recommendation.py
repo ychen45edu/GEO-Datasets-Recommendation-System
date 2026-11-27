@@ -234,3 +234,10 @@ def recommendation(output_dir,train_csv_path,test_csv_path,database_path):
             )
     else:
         print("[ERROR] No valid author_ids found in train.csv.")
+
+
+if __name__ == "__main__":
+    recommendation(output_dir = "../test",
+                   train_csv_path = "../data/train_test/train.csv",
+                   test_csv_path = "../data/train_test/test.csv",
+                   database_path="../test/sample.db")

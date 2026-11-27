@@ -111,4 +111,5 @@ def construct_db(path="../test/sample.db"):
     cur.close()
     conn.close()
 
-
+if __name__ == "__main__":
+    construct_db("../test/sample.db")

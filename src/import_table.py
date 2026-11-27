@@ -43,6 +43,7 @@ def import_csv_to_db(CSV_FOLDER, TARGET_DB):
 
     import_csvs_to_sqlite(CSV_FOLDER, TARGET_DB, TABLES, if_exists="replace")
 
-
+if __name__ == "__main__":
+    import_csv_to_db(CSV_FOLDER = "../data",TARGET_DB = "../test/sample.db")
 
 
