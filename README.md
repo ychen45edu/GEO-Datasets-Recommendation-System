@@ -27,7 +27,7 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 
 Before running the pipeline, ensure your environment meets the following software version requirements:
 
-- **Python:** `>= 3.12` 
+- **Python:** `>= 3.8` 
 - **R:** `4.2.2` 
 
 Then install requirements:
