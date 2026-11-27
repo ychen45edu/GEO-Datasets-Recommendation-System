@@ -31,32 +31,36 @@ Follow these four sequential steps to build the database, populate all tables, g
 
 
 
-### Step 2: Initialize the Empty Database
-Run `database_construction.py` to create `sample.db` and initialize the relational schema (`author`, `series`, `author_series`, etc.):
+### Step 1: Initialize the Empty Database
 
-```bash
+Run `database_construction.py` to create the SQLite database (`../test/sample.db`) and initialize its relational schema across eight core and linking tables (`series`, `publication`, `author`, `affiliation`, `publication_series`, `author_affiliation`, `author_publication`, and `author_series`):
+
+```
 python database_construction.py
 ```
 
-### Step 3: Import Data Tables
-Run `import_table.py` to import all processed table files from the `data/` directory into the initialized SQLite database:
+### Step 2: Populate the Database
 
-```bash
+Run `import_table.py` to import the corresponding table CSV files from `../data/` into `../test/sample.db`:
+
+```
 python import_table.py
 ```
 
-### Step 4: Run the Recommendation Pipeline
-Execute `recommendation.py` to compute multi-feature similarities and export the candidate recommendation results:
+### Step 3: Compute Dataset Feature Similarities
 
-```bash
-python recommendation.py
+Run `compute_similarity.py` to retrieve series metadata from `../test/sample.db` alongside the author-level splits in `../data/train_test/` (`historical_set.csv` and `test_set.csv`). For each author, the script calculates pairwise field-level and aggregated (5-feature and 3-feature min, max, and average) similarity scores between every candidate testing dataset and historical dataset, exporting per-author score tables (`{author_id}.csv`) to `../test/`:
+
+```
+python compute_similarity.py
 ```
 
-### Step 5: Evaluate Results & Export Figures
-Run `evaluation.R` to evaluate model performance and export the publication figures:
+### Step 4: Evaluate Results & Produce Performance Figures
 
-```bash
-Rscript evaluation.R
+Run `performance_curve.R` to aggregate the per-author similarity tables in `../test/`, evaluate Precision, Recall, and F1​ scores across similarity thresholds (`0.00` to `1.00` in steps of `0.05`), export metric tables to `../test/evaluation/`, and generate the 3×3 vector performance curve PDFs (`5f_performance_vectorVersion.pdf` and `3f_performance_vectorVersion.pdf`):
+
+```
+Rscript performance_curve.R
 ```
 
 This script exports the following figures:
