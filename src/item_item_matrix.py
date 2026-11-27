@@ -1,11 +1,7 @@
-import pandas as pd
 import numpy as np
 from numpy.linalg import norm
-import math
-import pandas as pd
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
 
 #Reduce/stemming and remove stop words
 def stop_word_stemming_(sentence):
