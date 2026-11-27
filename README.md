@@ -23,6 +23,21 @@ Finding relevant genomic datasets within public repositories like NCBI GEO often
 
 ---
 
+### Prerequisites & Environment Requirements
+
+Before running the pipeline, ensure your environment meets the following software version requirements:
+
+- **Python:** `>= 3.12` 
+- **R:** `4.2.2` 
+
+Then install requirements:
+```
+pip install -r requirements.txt
+```
+```
+Rscript install.R
+```
+
 
 ## Workflow & Execution
 
@@ -33,7 +48,7 @@ Follow these four sequential steps to build the database, populate all tables, g
 
 ### Step 1: Initialize the Empty Database
 
-Run `database_construction.py` to create the SQLite database (`../test/sample.db`) and initialize its relational schema across eight core and linking tables (`series`, `publication`, `author`, `affiliation`, `publication_series`, `author_affiliation`, `author_publication`, and `author_series`):
+Run `database_construction.py` to create the SQLite database (`../test/sample.db`) and initialize its relational schema across eight tables (`series`, `publication`, `author`, `affiliation`, `publication_series`, `author_affiliation`, `author_publication`, and `author_series`):
 
 ```
 python database_construction.py
@@ -49,7 +64,7 @@ python import_table.py
 
 ### Step 3: Compute Dataset Feature Similarities
 
-Run `compute_similarity.py` to retrieve series metadata from `../test/sample.db` alongside the author-level splits in `../data/train_test/` (`historical_set.csv` and `test_set.csv`). For each author, the script calculates pairwise field-level and aggregated (5-feature and 3-feature min, max, and average) similarity scores between every candidate testing dataset and historical dataset, exporting per-author score tables (`{author_id}.csv`) to `../test/`:
+Run `compute_similarity.py` to retrieve series metadata from `../test/sample.db` alongside the pre-defined author-level dataset splits in `../data/train_test/`, where `historical_set.csv` specifies the fixed historical dataset IDs and `test_set.csv` specifies the fixed candidate test set for evaluation. For each author, the script calculates pairwise field-level and aggregated (5-feature and 3-feature min, max, and average) similarity scores between every candidate test dataset and historical dataset, exporting per-author score tables (`{author_id}.csv`) to `../test/`:
 
 ```
 python compute_similarity.py
@@ -57,16 +72,11 @@ python compute_similarity.py
 
 ### Step 4: Evaluate Results & Produce Performance Figures
 
-Run `performance_curve.R` to aggregate the per-author similarity tables in `../test/`, evaluate Precision, Recall, and F1​ scores across similarity thresholds (`0.00` to `1.00` in steps of `0.05`), export metric tables to `../test/evaluation/`, and generate the 3×3 vector performance curve PDFs (`5f_performance_vectorVersion.pdf` and `3f_performance_vectorVersion.pdf`):
+Run `performance_curve.R` to aggregate the per-author similarity tables in `../test/`, evaluate Precision, Recall, and F1​ scores across similarity thresholds (`0.00` to `1.00` in steps of `0.05`), export metric tables and 3x3 performance curve PDFs (`5f_performance_vectorVersion.pdf` and `3f_performance_vectorVersion.pdf`) to `../test/evaluation/5features` and `../test/evaluation/3features` :
 
 ```
 Rscript performance_curve.R
 ```
-
-This script exports the following figures:
-- **Figure 1:** A histogram of the number of GEO datasets used by an author.
-- **Figure 2:** Performance diagrams using five data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
-- **Figure 3:** Performance diagrams using three data fields; $\alpha$ is the similarity threshold for which $F_1$ is maximal, with the corresponding recall $R$ and precision $P$.
 
 
 ## Author & Contact
