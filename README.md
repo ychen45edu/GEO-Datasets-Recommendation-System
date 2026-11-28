@@ -35,7 +35,7 @@ Then install requirements:
 pip install -r requirements.txt
 ```
 ```
-Rscript install.R
+Rscript ./src/install.R
 ```
 
 
