@@ -3,7 +3,6 @@ required_packages <- c(
   "patchwork",
   "ggtext",
   "tidyverse",
-  "ggtext"
 )
 
 missing_packages <- required_packages[!(required_packages %in% rownames(installed.packages()))]
